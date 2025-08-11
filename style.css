@@ -1,0 +1,54 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f5f5f5;
+    color: #333;
+  }
+  
+  header {
+    background: #0e1c3f;
+    padding: 1em;
+  }
+  
+  nav a {
+    color: white;
+    margin-right: 15px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .hero {
+    background-image: url("images/mapa-fundo.jpg");
+    background-size: cover;
+    padding: 5em;
+    text-align: center;
+    color: white;
+  }
+  
+  .topicos {
+    display: flex;
+    justify-content: space-around;
+    margin: 2em;
+  }
+  
+  .card {
+    background: white;
+    padding: 1em;
+    width: 30%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  .noticias-destaque {
+    display: flex;
+    justify-content: space-around;
+    padding: 2em;
+  }
+  
