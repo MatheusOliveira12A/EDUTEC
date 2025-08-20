@@ -42,3 +42,33 @@ footer {
   padding: 10px;
   margin-top: 30px;
 }
+
+.primeira_imagem {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 30px auto;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.primeira_imagem img {
+  width: 100%;
+  display: block;
+  opacity: 0.5; /* transparência */
+  object-fit: cover;
+  height: 300px;
+}
+
+h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+  text-align: center;
+  width: 80%;

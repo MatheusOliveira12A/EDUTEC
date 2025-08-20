@@ -1,20 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de Geopolítica</title>
     <link rel="stylesheet" href="style.css">
-    <script src="./sript.js" defer></script>
-    <title>GeoTech-Quiz</title>
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <header>
-        <nav>
-          <a href="index.html">Conteúdo</a>
-          <a href="noticias.html">Notícias</a>
-          <a href="quiz.html">Quiz</a>
-          <a href="equipe.html">Sobre nós</a>
-        </nav>
-      </header>
+    <header><h1>Quiz de Geopolítica</h1></header>
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="equipe.html">Equipe</a>
+        <a href="noticias.html">Conteúdo</a>
+        <a href="quiz.html">Quiz</a>
+    </nav>
+    <main>
+        <h2>Teste seus conhecimentos!</h2>
+        <p><strong>Pergunta:</strong> O que estuda a Geopolítica?</p>
+        <form id="quizForm">
+            <label><input type="radio" name="question" value="a"> As leis da física no espaço</label><br>
+            <label><input type="radio" name="question" value="b"> A história da arte moderna</label><br>
+            <label><input type="radio" name="question" value="c"> As relações de poder e território entre países</label><br><br>
+            <button type="button" onclick="checkQuiz()">Responder</button>
+        </form>
+        <p id="result"></p>
+    </main>
+    <footer>
+        &copy; 2025 - Projeto de Geopolítica
+    </footer>
 </body>
 </html>
