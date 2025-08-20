@@ -51,4 +51,9 @@ body {
     justify-content: space-around;
     padding: 2em;
   }
+
+  :root {
+    --black: #f0f0;
+    --cinza: rgba(78, 78, 78, 0);
+  }
   
