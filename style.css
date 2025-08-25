@@ -1,10 +1,11 @@
-/* style.css */
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   background: #f4f4f4;
   color: #333;
+  
 }
 
 header {
@@ -72,3 +73,13 @@ h1 {
   text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
   text-align: center;
   width: 80%;
+}
+
+.alianca {
+  background-image: url('caminho/da/sua/imagem.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 300px;
+    height: 200px;
+}
