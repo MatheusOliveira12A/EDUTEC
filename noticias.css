@@ -1,0 +1,96 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #3f3b3b;
+    color: #333;
+    
+  }
+  
+  header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+  }
+  
+  nav {
+    background: #34495e;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+  }
+  
+  nav a:hover {
+    text-decoration: underline;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  footer {
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 30px;
+  }
+  
+  .primeira_imagem {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 30px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+  
+  .primeira_imagem img {
+    width: 100%;
+    display: block;
+    opacity: 0.5; /* transparência */
+    object-fit: cover;
+    height: 300px;
+  }
+  
+  h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+    text-align: center;
+    width: 60%;
+    margin-top:  px;
+  }
+  
+  .alianca {
+    background-image: url('caminho/da/sua/imagem.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 300px;
+      height: 200px;
+  }
+  h3{
+    color: #fff;
+  }
+  h4{
+    color: #fff;
+  }
+  p{
+    color: #f7f0f0;
+  }
+
