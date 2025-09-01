@@ -13,6 +13,16 @@ header {
   color: white;
   padding: 15px 20px;
   text-align: center;
+
+  div {
+    display: flex;
+    align-items: center;
+    gap: 72px;
+  }
+
+  img {
+    width: 70px;
+  }
 }
 
 nav {
@@ -24,7 +34,6 @@ nav {
 nav a {
   color: rgb(0, 0, 0);
   text-decoration: none;
-  margin: 0 15px;
   font-weight: bold;
 }
 
@@ -98,7 +107,7 @@ p{
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
-.logo {
+/* .logo {
   width: 100%;
   max-width: 900px;
   margin: 30px auto;
@@ -107,4 +116,4 @@ p{
   box-shadow:  0 4px 8px rgba(0, 0, 0, 0.2);
   margin-bottom: auto;
   align-items: center;
-}
+} */
