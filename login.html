@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - GeoTech</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <a href="./noticias.html"><button class="botao-voltar" onclick="voltarPagina()">⟵ Voltar</button></a>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="form-login">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+
+            <label for="password">Senha</label>
+            <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+</body>
+<script>
+    // Seleciona o formulário pelo ID
+    const form = document.getElementById('form-login');
+
+    // Adiciona o evento de submit
+    form.addEventListener('submit', function (event) {
+        
+        event.preventDefault(); // Impede o envio automático do formulário
+
+        // Captura os valores dos inputs
+        const email = document.getElementById('email').value.trim();
+        const senha = document.getElementById('password').value.trim();
+
+        // Validação simples
+        if (email === '' || senha === '') {
+            alert('Por favor, preencha todos os campos.');
+            return;
+        }
+
+        // Validação de e-mail (básica)
+        if (!email.includes('@') || !email.includes('.')) {
+            alert('Digite um e-mail válido.');
+            return;
+        }
+
+        
+        console.log(email)
+        // Se passou nas validações:
+        console.log('E-mail:', email);
+        console.log('Senha:', senha);
+
+        // Aqui você pode seguir com login, API, Firebase, etc.
+        alert('Login válido!');
+        window.location.href = './noticias.html';
+    });
+</script>
+</html>
