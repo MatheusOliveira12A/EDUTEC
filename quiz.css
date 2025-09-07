@@ -1,0 +1,144 @@
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: "Segoe UI", sans-serif; }
+body, html { width: 100%; height: 100%; background: #0d111a; color: #f1f1f1; overflow: hidden; }
+
+/* Fundo animado */
+body {
+  background: url("https://upload.wikimedia.org/wikipedia/commons/2/27/Mercator_projection_SW.jpg") no-repeat center center fixed;
+  background-size: cover;
+  animation: moverFundo 50s linear infinite;
+}
+@keyframes moverFundo {
+  from { background-position: 0 0; }
+  to { background-position: -800px 800px; }
+}
+
+/* Telas */
+.screen {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  text-align: center;
+  padding: 20px;
+  backdrop-filter: brightness(0.8) blur(2px);
+}
+.active { display: flex; animation: fadeIn 0.6s ease; }
+@keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+
+/* Textos */
+h1 { font-size: 2.5rem; margin-bottom: 20px; }
+p { font-size: 1.2rem; margin-bottom: 20px; }
+
+/* Botões */
+button {
+  background: #1e3a5f;
+  border: none;
+  color: #fff;
+  padding: 12px 25px;
+  margin: 10px;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+button:hover { background: #2e5a8f; transform: scale(1.05); }
+
+/* Botão Voltar página */
+.botao-voltar {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  padding: 12px 18px;
+  background-color: #00aaff;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+  z-index: 1000;
+}
+.botao-voltar:hover { background-color: #008ecc; }
+
+/* Mascote */
+.mascot {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 80px;
+  animation: flutuar 4s ease-in-out infinite;
+}
+@keyframes flutuar {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(10deg); }
+}
+
+/* Tela inicial - imagem centralizada */
+.geop {
+  margin-top: 25px;
+  width: 140px;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(255,255,255,0.3);
+  animation: flutuar 6s ease-in-out infinite;
+}
+
+/* Questões */
+.question { margin: 20px 0; font-size: 1.5rem; font-weight: bold; }
+.options { display: flex; flex-direction: column; gap: 15px; align-items: center; }
+.options button {
+  background: #222c3d;
+  border: 2px solid #2e5a8f;
+  border-radius: 12px;
+  width: 250px;
+  transition: 0.3s;
+}
+.options button:hover { background: #2e5a8f; }
+.options button.correct { background: #2e8f5a !important; border-color: #2e8f5a; }
+.options button.wrong { background: #b22 !important; border-color: #b22; }
+
+/* Resultado */
+.result-card {
+  background: rgba(30, 58, 95, 0.9);
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.4);
+  animation: bounceIn 0.8s ease;
+}
+@keyframes bounceIn {
+  0% { transform: scale(0.7); opacity: 0; }
+  60% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); }
+}
+.score {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 15px 0;
+}
+.medal {
+  font-size: 3rem;
+  margin: 10px 0;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+.result-table {
+  margin-top: 20px;
+  border-collapse: collapse;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.result-table th, .result-table td {
+  border: 1px solid #444;
+  padding: 12px;
+  font-size: 1.1rem;
+  text-align: center;
+}
+.result-table th { background: #2e5a8f; }
