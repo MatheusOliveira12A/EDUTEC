@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>GeoTech - Quiz Geopolítica</title>
+  <link rel="stylesheet" href="quiz.css">
+  
+  
+</head>
+<body>
+
+  <div id="welcome" class="screen active">
+    <h1>🌍 Bem-vindo ao Quiz GeoTech!</h1>
+    <p>Teste seus conhecimentos sobre geopolítica de forma interativa e divertida.</p>
+    <button onclick="goToScreen('confirm')">Continuar</button>
+    
+  </div>
+
+
+  <div id="confirm" class="screen">
+    <h1>Você está pronto?</h1>
+    <p>O quiz possui 10 perguntas de múltipla escolha.<br>
+       Cada acerto e erro será exibido na tela.<br>
+       No final, você verá sua pontuação.</p>
+    <button onclick="startQuiz()">Sim, começar agora</button>
+    <button onclick="goToScreen('welcome')">Voltar</button>
+  </div>
+
+  <div id="quiz" class="screen">
+    <h1 id="question"></h1>
+    <div class="options" id="options"></div>
+    <button id="nextBtn" onclick="nextQuestion()" style="display:none;">Próxima</button>
+  </div>
+
+  <div id="result" class="screen">
+    <div class="result-card">
+      <h1>Resultado Final</h1>
+      <div class="medal" id="medal">🏆</div>
+      <p class="score" id="scoreText"></p>
+      <table class="result-table">
+        <tr><th>Total de Questões</th><td id="totalQ"></td></tr>
+        <tr><th>Acertos</th><td id="correctQ"></td></tr>
+        <tr><th>Erros</th><td id="wrongQ"></td></tr>
+      </table>
+      <button onclick="goToScreen('welcome')">Voltar ao Início</button>
+    </div>
+  </div>
+
+
+  <a href="./noticias.html"><button class="botao-voltar">⟵ Voltar</button></a>
+
+  
+  <audio id="acertoSound" src="https://www.myinstants.com/media/sounds/tada-fanfare.mp3" preload="auto"></audio>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+<script>
+const questions = [
+  { q: "Qual país possui o maior território do mundo?", a: ["China", "Rússia", "Canadá", "EUA"], c: 1 },
+  { q: "Qual é a capital da União Europeia?", a: ["Bruxelas", "Paris", "Berlim", "Roma"], c: 0 },
+  { q: "A ONU foi fundada em qual ano?", a: ["1945", "1918", "1950", "1939"], c: 0 },
+  { q: "Qual país é conhecido como a 'terra do sol nascente'?", a: ["Japão", "China", "Coreia do Sul", "Índia"], c: 0 },
+  { q: "Qual é o canal que liga o Mar Mediterrâneo ao Mar Vermelho?", a: ["Canal da Mancha", "Canal de Suez", "Canal do Panamá", "Estreito de Bósforo"], c: 1 },
+  { q: "O Tratado de Versalhes foi assinado após qual guerra?", a: ["Primeira Guerra Mundial", "Segunda Guerra Mundial", "Guerra Fria", "Guerra da Crimeia"], c: 0 },
+  { q: "Qual país africano foi colonizado por Portugal?", a: ["Nigéria", "Moçambique", "Quênia", "Egito"], c: 1 },
+  { q: "A OTAN foi criada em que ano?", a: ["1949", "1955", "1930", "1960"], c: 0 },
+  { q: "Qual destes não é membro permanente do Conselho de Segurança da ONU?", a: ["EUA", "Rússia", "Alemanha", "China"], c: 2 },
+  { q: "Brasília é capital do Brasil desde:", a: ["1822", "1889", "1960", "2000"], c: 2 }
+];
+
+let currentQ = 0, correct = 0, wrong = 0;
+
+function goToScreen(id) {
+  document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+
+function startQuiz() {
+  currentQ = 0; correct = 0; wrong = 0;
+  goToScreen("quiz");
+  showQuestion();
+}
+
+function showQuestion() {
+  const q = questions[currentQ];
+  document.getElementById("question").textContent = q.q;
+  const optionsDiv = document.getElementById("options");
+  optionsDiv.innerHTML = "";
+  q.a.forEach((opt, i) => {
+    const btn = document.createElement("button");
+    btn.textContent = opt;
+    btn.onclick = () => checkAnswer(i, btn);
+    optionsDiv.appendChild(btn);
+  });
+  document.getElementById("nextBtn").style.display = "none";
+}
+
+function checkAnswer(i, btn) {
+  const q = questions[currentQ];
+  const buttons = document.querySelectorAll("#options button");
+  buttons.forEach((b, index) => {
+    b.disabled = true;
+    if (index === q.c) b.classList.add("correct");
+    else if (index === i) b.classList.add("wrong");
+  });
+
+  if (i === q.c) {
+    correct++;
+ 
+    document.getElementById("acertoSound").play();
+    
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 }
+    });
+  } else {
+    wrong++;
+  }
+  document.getElementById("nextBtn").style.display = "inline-block";
+}
+
+function nextQuestion() {
+  currentQ++;
+  if (currentQ < questions.length) showQuestion();
+  else showResult();
+}
+
+function showResult() {
+  const total = questions.length;
+  const percent = Math.round((correct / total) * 100);
+  let medal = "🏆";
+
+  if (percent === 100) medal = "🥇";
+  else if (percent >= 70) medal = "🥈";
+  else if (percent >= 40) medal = "🥉";
+  else medal = "😅";
+
+  document.getElementById("totalQ").textContent = total;
+  document.getElementById("correctQ").textContent = correct;
+  document.getElementById("wrongQ").textContent = wrong;
+  document.getElementById("scoreText").textContent = `Você acertou ${percent}%`;
+  document.getElementById("medal").textContent = medal;
+
+  goToScreen("result");
+}
+</script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
