@@ -23,25 +23,25 @@
     </div>
 </body>
 <script>
-    // Seleciona o formulário pelo ID
+    
     const form = document.getElementById('form-login');
 
-    // Adiciona o evento de submit
+    
     form.addEventListener('submit', function (event) {
         
-        event.preventDefault(); // Impede o envio automático do formulário
+        event.preventDefault(); 
 
-        // Captura os valores dos inputs
+        
         const email = document.getElementById('email').value.trim();
         const senha = document.getElementById('password').value.trim();
 
-        // Validação simples
+        
         if (email === '' || senha === '') {
             alert('Por favor, preencha todos os campos.');
             return;
         }
 
-        // Validação de e-mail (básica)
+        
         if (!email.includes('@') || !email.includes('.')) {
             alert('Digite um e-mail válido.');
             return;
@@ -49,11 +49,11 @@
 
         
         console.log(email)
-        // Se passou nas validações:
+        
         console.log('E-mail:', email);
         console.log('Senha:', senha);
 
-        // Aqui você pode seguir com login, API, Firebase, etc.
+        
         alert('Login válido!');
         window.location.href = './noticias.html';
     });
